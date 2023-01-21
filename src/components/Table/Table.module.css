@@ -1,0 +1,8 @@
+.table {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: 24px;
+  border: 1px solid gray;
+  height: 100vh;
+}

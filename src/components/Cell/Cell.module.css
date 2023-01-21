@@ -1,0 +1,12 @@
+.cell {
+  padding: 0 4px;
+  text-align: center;
+}
+
+.cell:focus {
+  border: 1px solid #1581ba;
+}
+
+.cell:not(:focus) {
+  text-align: right;
+}
