@@ -42,6 +42,8 @@ export const Table = ({ numberOfColumns, numberOfRows }) => {
               /^=([A-Z]+)([0-9]+)([+*-/])([A-Z]+)([0-9]+)$/;
             const formulaMatch = cellContent.match(formulaPattern);
 
+            //This validation is to check if the formula is of the form A1+A2
+            //And prevent eval from executing any other formula like =alert(1)
             if (formulaMatch) {
               return eval(substitutedExpression);
             } else {
