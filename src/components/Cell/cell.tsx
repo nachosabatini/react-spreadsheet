@@ -1,5 +1,5 @@
-import React, { useCallback, useState, memo, useMemo } from "react";
-import Header from "../Header/header";
+import { useCallback, useState, memo, useMemo } from "react";
+import Header from "../TableHeader/tableHeader";
 import styles from "./Cell.module.css";
 
 type Props = {

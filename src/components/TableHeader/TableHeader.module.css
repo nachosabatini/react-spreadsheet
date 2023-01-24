@@ -1,0 +1,13 @@
+.header {
+  background-color: #eee;
+  color: #282828;
+  padding: 4px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid silver;
+  font-weight: 500;
+}
+
+.header:first-child {
+  background-color: #fff;
+}

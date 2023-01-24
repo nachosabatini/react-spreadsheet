@@ -19,27 +19,34 @@ export const Table = ({ numberOfColumns, numberOfRows }) => {
 
   const computeCell = useCallback(
     ({ row, column }) => {
-      console.log(tableData);
       const cellContent = tableData[`${column}${row}`];
+
       if (cellContent) {
         if (cellContent.charAt(0) === "=") {
           // This regex converts = "A1+A2" to ["A1","+","A2"]
-          const expression = cellContent.substr(1).split(/([+*-])/g);
-
-          let subStitutedExpression = "";
+          const expression = cellContent.substr(1).split(/([+*-/])/g);
+          let substitutedExpression = "";
 
           expression.forEach((item) => {
             // Regex to test if it is of form alphabet followed by number ex: A1
-            if (/^[A-z][0-9]$/g.test(item || "")) {
-              subStitutedExpression +=
+            if (/^[A-z][0-9]+$/g.test(item || "")) {
+              substitutedExpression +=
                 tableData[(item || "").toUpperCase()] || 0;
             } else {
-              subStitutedExpression += item;
+              substitutedExpression += item;
             }
           });
 
           try {
-            return eval(subStitutedExpression);
+            const formulaPattern =
+              /^=([A-Z]+)([0-9]+)([+*-/])([A-Z]+)([0-9]+)$/;
+            const formulaMatch = cellContent.match(formulaPattern);
+
+            if (formulaMatch) {
+              return eval(substitutedExpression);
+            } else {
+              return "ERROR!";
+            }
           } catch (error) {
             return "ERROR!";
           }

@@ -1,0 +1,20 @@
+.menuBarContainer {
+  display: flex;
+}
+
+.menuItem {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #202124;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-weight: 400;
+}
+
+.menuItem:hover {
+  background-color: #f1f3f4;
+}
